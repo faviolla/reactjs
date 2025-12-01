@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PersonListItem from "../PersonListItem/PersonListItem";
+import "./PersonList.css";
 
 const PersonList = () => {
   const personList = [{ title: "1" }, { title: "2" }];
@@ -12,7 +13,7 @@ const PersonList = () => {
     setState(!state);
   };
   return (
-    <div style={state ? styles.containerDarkGray : styles.containerGray}>
+    <div className={`container ${state ? "containerGray" : ""}`}>
       <p>Person List</p>
       {personList.map((item, index) => (
         <PersonListItem key={index} title={item.title} />
