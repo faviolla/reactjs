@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import PersonList from "./components/PersonList/PersonList";
+import UncontrolledForm from "./components/UncontrolledForms/UncontrolledForm";
 import "./App.css";
 
 function App() {
@@ -12,12 +13,13 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <input type="text" ref={inputRef} />
+      {/* <header className="App-header"> */}
+      {/* <input type="text" ref={inputRef} />
         <p>Text</p>
         <button onClick={handleFocus}>Focus me</button> */}
-        <PersonList />
-      </header>
+      {/* <PersonList /> */}
+      {/* </header> */}
+      <UncontrolledForm />
     </div>
   );
 }
