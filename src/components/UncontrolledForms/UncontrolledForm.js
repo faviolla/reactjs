@@ -8,6 +8,8 @@ const UncontrolledForm = () => {
     // const email = event.target.email.value;
     console.log(formRef.current.firstName.value);
     console.log(formRef.current.email.value);
+
+    formRef.current.reset();
   };
   return (
     <form ref={formRef} onSubmit={handleSubmit}>
