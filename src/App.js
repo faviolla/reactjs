@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import PersonList from "./components/PersonList/PersonList";
-import UncontrolledForm from "./components/UncontrolledForms/UncontrolledForm";
+// import UncontrolledForm from "./components/UncontrolledForms/UncontrolledForm";
+import ControlledForms from "./components/ControlledForms/ControlledForms";
 import "./App.css";
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
         <button onClick={handleFocus}>Focus me</button> */}
       {/* <PersonList /> */}
       {/* </header> */}
-      <UncontrolledForm />
+      {/* <UncontrolledForm /> */}
+      <ControlledForms />
     </div>
   );
 }
