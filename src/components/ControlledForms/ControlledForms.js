@@ -1,8 +1,10 @@
 import { useRef, useState } from "react";
 
 const ControlledForms = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [value, setValue] = useState({
+    name: "",
+    email: "",
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -10,12 +12,12 @@ const ControlledForms = () => {
 
   const handleNameChange = (event) => {
     const name = event.target.value;
-    setName(name);
+    setValue((prevState) => ({ ...prevState, name }));
   };
 
   const handleEmailChange = (event) => {
     const email = event.target.value;
-    setEmail(email);
+    setValue((prevState) => ({ ...prevState, email }));
   };
 
   return (
@@ -28,8 +30,8 @@ const ControlledForms = () => {
         <button type="submit">Submit Form</button>
       </form>
       <div>
-        <p>firstName: {name}</p>
-        <p>email: {email}</p>
+        <p>firstName: {value.name}</p>
+        <p>email: {value.email}</p>
       </div>
     </>
   );
