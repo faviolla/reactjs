@@ -1,4 +1,7 @@
 import { useRef, useState } from "react";
+import InputData from "./InputData";
+import Checkbox from "./Checkbox";
+import TextInputs from "./TextInputs";
 
 const ControlledForms = () => {
   const [value, setValue] = useState({
@@ -11,57 +14,16 @@ const ControlledForms = () => {
     event.preventDefault();
   };
 
-  const handleNameChange = (event) => {
-    const name = event.target.value;
-    setValue((prevState) => ({ ...prevState, name }));
-  };
-
-  const handleEmailChange = (event) => {
-    const email = event.target.value;
-    setValue((prevState) => ({ ...prevState, email }));
-  };
-
-  const handleCheckboxChange = (event) => {
-    const checkbox = event.target.checked;
-    setValue((prevState) => ({ ...prevState, checkbox }));
-  };
-
   return (
     <>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }}>
-        <div style={{ padding: 20 }}>
-          <label style={{ marginRight: 10 }} htmlFor="firstName">
-            Name
-          </label>
-          <input value={value.name} onChange={handleNameChange} type="text" name="firstName" id="firstName" />
-        </div>
-        <div style={{ padding: 20 }}>
-          <label style={{ marginRight: 10 }} htmlFor="email">
-            Email
-          </label>
-          <input value={value.email} onChange={handleEmailChange} type="email" name="email" id="email" />
-        </div>
-        <div style={{ padding: 20 }}>
-          <label style={{ marginRight: 10 }} htmlFor="checkbox">
-            Checkbox
-          </label>
-          <input checked={value.checkbox} onChange={handleCheckboxChange} type="checkbox" name="checkbox" id="checkbox" />
-        </div>
+        <TextInputs value={value} setValue={setValue} />
+        <Checkbox value={value} setValue={setValue} />
         <div style={{ padding: 20 }}>
           <button type="submit">Submit Form</button>
         </div>
       </form>
-      <div>
-        <p>
-          firstName: <strong>{value.name}</strong>
-        </p>
-        <p>
-          email: <strong>{value.email}</strong>
-        </p>
-        <p>
-          checkbox: <strong>{value.checkbox.toString()}</strong>
-        </p>
-      </div>
+      <InputData value={value} />
     </>
   );
 };
