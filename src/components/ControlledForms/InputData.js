@@ -10,6 +10,9 @@ const InputData = ({ value }) => {
       <p>
         checkbox: <strong>{value.checkbox.toString()}</strong>
       </p>
+      <p>
+        select: <strong>{value.select}</strong>
+      </p>
     </div>
   );
 };
