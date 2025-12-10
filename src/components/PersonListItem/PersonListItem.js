@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const PersonListItem = ({ title }) => {
   return <div>Person {title}</div>;
 };

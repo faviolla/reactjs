@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import InputData from "./InputData";
 import Checkbox from "./Checkbox";
 import TextInputs from "./TextInputs";

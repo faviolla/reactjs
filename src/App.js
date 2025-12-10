@@ -1,9 +1,10 @@
-import { useRef, useEffect, useState } from "react";
-import PersonList from "./components/PersonList/PersonList";
+import { useEffect, useState } from "react";
+// import PersonList from "./components/PersonList/PersonList";
 // import UncontrolledForm from "./components/UncontrolledForms/UncontrolledForm";
-import ControlledForms from "./components/ControlledForms/ControlledForms";
+// import ControlledForms from "./components/ControlledForms/ControlledForms";
 import { getContactsList } from "./api/api";
 import "./App.css";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   // const inputRef = useRef();
@@ -15,9 +16,12 @@ function App() {
 
   // }
   const [contacts, setContacts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async () => {
+    setIsLoading(true);
     const data = await getContactsList();
+    setIsLoading(false);
     setContacts(data);
   };
 
@@ -39,11 +43,15 @@ function App() {
         {/* <UncontrolledForm /> */}
         {/* <ControlledForms /> */}
         <ul>
-          {contacts.map((contact) => (
-            <li key={contact.id}>
-              {contact.name} {contact.lastName}
-            </li>
-          ))}
+          {isLoading ? (
+            <Loader />
+          ) : (
+            contacts.map((contact) => (
+              <li key={contact.id}>
+                {contact.name} {contact.lastName}
+              </li>
+            ))
+          )}
         </ul>
       </header>
     </div>
